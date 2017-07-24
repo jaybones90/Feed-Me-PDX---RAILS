@@ -1,2 +1,37 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.custom-nav {
+  background-position: center;
+  background-size: cover;
+  position: fixed;
+  width: 100%;
+  height: 100px;
+  .right-nav-item {
+    text-align: right;
+    padding: 3em;
+    a {
+      font-size: 20px;
+      color: white;
+    }
+  }
+}
+
+
+.bg-img {
+  background-image: url('bg1-resized.jpg');
+  background-position: center;
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  z-index: -1;
+  .black-overlay {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .3);
+  }
+}
