@@ -1,0 +1,13 @@
+
+
+<h1> <%= @food_cart.name %> </h1>
+<p> <%= @food_cart.hours %> </p>
+<% @food_cart.locations.each do |location| %>
+  <div class="address">
+    <ul>
+      <li>Pod: <%= location.pod %> </li>
+      <li> <%= location.address %> </li>
+      <li> <%= location.city %>, <%= location.state %> <%= location.zip %> </li>
+    </ul>
+  </div>
+<% end %>

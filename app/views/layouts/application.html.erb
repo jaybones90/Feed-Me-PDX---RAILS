@@ -8,7 +8,10 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <div class="custom-nav">
+    <p class="left-nav-item"> <%= link_to "Home", root_path %> </p>
+    <p class="left-nav-item"> <%= link_to "Text Ordering", text_interface_messages_path %> </p>
     <p class="right-nav-item"><%= link_to "Admins", rails_admin_path %></p>
+    <p class="right-nav-item"> <%= link_to "Food Carts", food_carts_path %></p>
   </div>
   <div class="container">
     <body>

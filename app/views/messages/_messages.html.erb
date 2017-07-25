@@ -1,0 +1,5 @@
+<% if @all_messages.any? %>
+  <% @all_messages.each do |message| %>
+    <p>From: <%= message.from_number %> <%= message.body %> </p>
+  <% end %>
+<% end %>

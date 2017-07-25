@@ -19,17 +19,17 @@ class Seed
         name: Faker::Company.name,
         hours: "8am - 5pm"
         )
-      location = cart.create_location!(
+      location = cart.locations.create!(
           address: Faker::Address.street_address,
           city: "Portland",
           state: "OR",
           zip: Faker::Address.zip,
           pod: Faker::Address.community
       )
+      puts "created #{i} carts"
+      puts "created #{i} locations"
+      puts "created #{i} owners"
     end
-    # puts "created #{i} carts"
-    # puts "created #{i} locations"
-    # puts "created #{i} owners"
   end
 
 end

@@ -5,5 +5,15 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
+  resource :messages do
+    collection do
+      post 'receive'
+      post 'reply'
+      get 'text_interface'
+    end
+  end
+
+
+  resources :food_carts, only: [:index, :show]
 
 end
