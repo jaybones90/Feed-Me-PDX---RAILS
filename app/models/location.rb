@@ -1,3 +1,3 @@
 class Location < ApplicationRecord
-  has_one :food_cart
+  belongs_to :food_cart
 end
