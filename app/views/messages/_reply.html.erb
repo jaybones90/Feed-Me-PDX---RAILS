@@ -1,5 +1,5 @@
 <% if Message.last %>
-  <%= form_tag action: "reply", controller: "messages"  do  %>
+  <%= form_tag action: "reply", controller: "messages", remote: true do  %>
     <%= hidden_field_tag :id, Message.last.id %>
     <%= label_tag "Message Body" %>
     <%= text_area_tag :reply, nil, :rows => 6, :cols => 30  %>

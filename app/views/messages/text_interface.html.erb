@@ -1,5 +1,15 @@
+  <p class="left-nav-item"> <%= link_to "FoodCart Sign Out", destroy_food_cart_session_path(current_food_cart), method: :delete  if current_food_cart %> </p>
+
 <h1>Text Message Order Thread</h1>
 
 <%= render 'messages' %>
 
-<%= render 'reply' %>
+<% if Message.last %>
+  <%= form_tag reply_messages_path, method: :post, remote: true  do  %>
+    <%= hidden_field_tag :id, Message.last.id %>
+    <%= label_tag "Message Body" %>
+    <%= text_area_tag :reply, nil, :rows => 6, :cols => 30  %>
+    <br>
+    <%= submit_tag "Submit"%>
+  <% end %>
+<% end %>

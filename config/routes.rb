@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+
   devise_for :food_carts
+
+
   devise_for :admins
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
@@ -10,11 +13,12 @@ Rails.application.routes.draw do
     collection do
       post 'receive'
       post 'reply'
+      get 'reply'
       get 'text_interface'
     end
   end
 
 
-  resources :food_carts, only: [:index, :show]
+  resources :food_carts
 
 end

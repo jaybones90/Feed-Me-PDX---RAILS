@@ -18,7 +18,10 @@ class MessagesController < ApplicationController
     to: @message.from_number,
     body: reply.body
     )
-    redirect_to text_interface_messages_path
+    respond_to do |format|
+      format.html { redirect_to text_interface_messages_path }
+      format.js 
+    end
   end
 
   def text_interface
