@@ -10,6 +10,7 @@
   <div class="custom-nav">
     <p class="left-nav-item"> <%= link_to "Home", root_path %> </p>
     <p class="left-nav-item"> <%= link_to "Text Ordering", text_interface_messages_path %> </p>
+    <p class="left-nav-item"> <%= link_to "FoodCart Sign Out", destroy_food_cart_session_path if current_food_cart %> </p>
     <p class="right-nav-item"><%= link_to "Admins", rails_admin_path %></p>
     <p class="right-nav-item"> <%= link_to "Food Carts", food_carts_path %></p>
   </div>

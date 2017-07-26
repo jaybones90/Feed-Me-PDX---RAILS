@@ -17,7 +17,10 @@ class Seed
       )
       cart = owner.food_carts.create!(
         name: Faker::Company.name,
-        hours: "8am - 5pm"
+        hours: "8am - 5pm",
+        email: Faker::Internet.email,
+        password: "1234567",
+        password_confirmation: "1234567"
         )
       location = cart.locations.create!(
           address: Faker::Address.street_address,
