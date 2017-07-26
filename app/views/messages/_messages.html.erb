@@ -1,5 +1,10 @@
 <% if @all_messages.any? %>
-  <% @all_messages.each do |message| %>
-    <p>From: <%= message.from_number %> <%= message.body %> </p>
+  <% if @all_replies.any? %>
+    <% @all_messages.each do |message| %>
+      <% @all_replies.each do |reply| %>
+        <p>From: <%= message.from_number %> <%= message.body %> </p>
+        <p>FeedMePDX: <%= reply.body %> </p>
+      <% end %>
+    <% end %>
   <% end %>
 <% end %>

@@ -5,9 +5,7 @@ class PagesController < ApplicationController
   def home
   end
 
-  def text
-    @all_messages = Message.all
-  end
+
 
 
 

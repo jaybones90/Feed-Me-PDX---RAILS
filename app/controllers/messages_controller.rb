@@ -5,23 +5,24 @@ class MessagesController < ApplicationController
 
 
   def receive
-    new_message = Message.create(:body => params['Body'], :from_number => params['From'])
+    new_message = Message.create!(:body => params['Body'], :from_number => params['From'])
   end
 
   def reply
     @message = Message.find(params[:id])
-    binding.pry
+    reply = Reply.create!(:body => params[:message_to_send])
     boot_twilio
     sms = @client.messages.create(
     from: ENV['TWILIO_NUMBER'],
     to: @message.from_number,
-    body: params[:message_to_send]
+    body: reply.body
     )
     redirect_to 'pages#text'
   end
 
   def text_interface
     @all_messages = Message.all
+    @all_replies = Reply.all
   end
 
   private
