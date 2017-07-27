@@ -4,10 +4,12 @@ class MessagesController < ApplicationController
   before_action :authenticate_food_cart!, only: [:text_interface]
 
   def receive
+    # @all_messages = Message.all
+    # @all_replies = Reply.all
     counter = Message.all.length
     new_message = Message.create!(:body => params['Body'], :from_number => params['From'])
     if counter < Message.all.length
-      redirect_to text_interface_messages_path
+      redirect_to "http://6fce6c2b.ngrok.io/messages/text_interface"
     end
   end
 

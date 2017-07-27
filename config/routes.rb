@@ -18,6 +18,9 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :orders, only: [:new, :create]
+  resources :order_items, only: [:new, :create]
+
 
   resources :food_carts
 
