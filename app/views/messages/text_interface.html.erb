@@ -2,7 +2,9 @@
 
 <h1>Text Message Order Thread</h1>
 
-<%= render 'messages' %>
+
+  <%= render 'messages' %>
+
 
 <% if Message.last %>
   <%= form_tag reply_messages_path, method: :post, remote: true  do  %>

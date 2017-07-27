@@ -6,7 +6,12 @@ class MessagesController < ApplicationController
 
 
   def receive
-    new_message = Message.create!(:body => params['Body'], :from_number => params['From'])
+    respond_to do |format|
+      new_message = Message.create!(:body => params['Body'], :from_number => params['From'])
+      if new_message.save
+        format.js
+      end
+    end
   end
 
   def reply
@@ -20,7 +25,7 @@ class MessagesController < ApplicationController
     )
     respond_to do |format|
       format.html { redirect_to text_interface_messages_path }
-      format.js 
+      format.js
     end
   end
 
