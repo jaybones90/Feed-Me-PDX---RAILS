@@ -1,1 +1,5 @@
-alert('hey 44')
+
+$('.message-block').empty()
+$('.message-block').html("<%= j render partial:('messages'), locals: {:@all_messages =>  Message.all} %>")
+$('.message-block').append("<%= j render partial:('replies'), locals: {:@all_replies => Reply.all} %>")
+$('#reply-text-area').val("")

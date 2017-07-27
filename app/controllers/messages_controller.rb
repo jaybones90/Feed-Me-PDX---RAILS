@@ -3,14 +3,11 @@ class MessagesController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :authenticate_food_cart!, only: [:text_interface]
 
-
-
   def receive
-    respond_to do |format|
-      new_message = Message.create!(:body => params['Body'], :from_number => params['From'])
-      if new_message.save
-        format.js
-      end
+    counter = Message.all.length
+    new_message = Message.create!(:body => params['Body'], :from_number => params['From'])
+    if counter < Message.all.length
+      redirect_to text_interface_messages_path
     end
   end
 

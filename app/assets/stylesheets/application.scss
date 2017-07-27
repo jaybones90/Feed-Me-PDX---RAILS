@@ -60,3 +60,22 @@
     list-style: none;
   }
 }
+
+.message-block {
+  padding: 2em;
+  border: 2px solid black;
+}
+
+.customer-message {
+  color: green;
+}
+
+.food-cart-message {
+  color: blue;
+}
+
+.number-to-text {
+  text-align: center;
+  margin-top: 5em;
+  color: white;
+}

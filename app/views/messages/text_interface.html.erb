@@ -2,16 +2,26 @@
 
 <h1>Text Message Order Thread</h1>
 
-
-  <%= render 'messages' %>
-
-
-<% if Message.last %>
-  <%= form_tag reply_messages_path, method: :post, remote: true  do  %>
-    <%= hidden_field_tag :id, Message.last.id %>
-    <%= label_tag "Message Body" %>
-    <%= text_area_tag :reply, nil, :rows => 6, :cols => 30  %>
-    <br>
-    <%= submit_tag "Submit"%>
-  <% end %>
-<% end %>
+<div class="row">
+  <div class="col-sm-8 message-block">
+    <% if @all_messages.any? %>
+    <%= render 'messages' %>
+      <% else %>
+        <p>No New Messages</p>
+    <% end %>
+    <% if @all_replies.any? %>
+      <%= render 'replies' %>
+    <% end %>
+  </div>
+  <div class="col-sm-4 reply-block">
+    <% if Message.last %>
+      <%= form_tag reply_messages_path, method: :post, remote: true  do  %>
+        <%= hidden_field_tag :id, Message.last.id %>
+        <%= label_tag "Message Body" %>
+        <%= text_area_tag :reply, nil, id: "reply-text-area", :rows => 6, :cols => 30  %>
+        <br>
+        <%= submit_tag "Submit"%>
+      <% end %>
+    <% end %>
+  </div>
+</div>

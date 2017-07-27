@@ -1,10 +1,3 @@
-<% if @all_messages.any? %>
-    <% @all_messages.each do |message| %>
-    <p>From: <%=message.from_number %> <%= message.body %> </p>
-    <% if @all_replies.any? %>
-      <% @all_replies.each do |reply| %>
-        <p>FeedMePdx: <%= reply.body %> </p>
-      <% end %>
-    <% end %>
-  <% end %>
+<% @all_messages.each do |message| %>
+<p class="customer-message">From: <%=message.from_number %> <%= message.body %> </p>
 <% end %>
