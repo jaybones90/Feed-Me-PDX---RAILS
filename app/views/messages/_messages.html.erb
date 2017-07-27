@@ -1,3 +1,6 @@
 <% @all_messages.each do |message| %>
-<p class="customer-message">From: <%=message.from_number %> <%= message.body %> </p>
+  <% @all_replies.each do |reply| %>
+    <p class="customer-message">From: <%=message.from_number %> <%= message.body %> </p>
+    <p class="food-cart-message"> <%= reply.body %> </p>
+  <% end %>
 <% end %>

@@ -5,12 +5,11 @@
 <div class="row">
   <div class="col-sm-8 message-block">
     <% if @all_messages.any? %>
-    <%= render 'messages' %>
+      <% if @all_replies.any? %>
+        <%= render 'messages' %>
       <% else %>
         <p>No New Messages</p>
-    <% end %>
-    <% if @all_replies.any? %>
-      <%= render 'replies' %>
+      <% end %>
     <% end %>
   </div>
   <div class="col-sm-4 reply-block">
