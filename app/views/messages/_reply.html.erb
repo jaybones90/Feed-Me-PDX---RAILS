@@ -3,7 +3,7 @@
     <%= hidden_field_tag :id, Message.last.id %>
     <%= label_tag "Reply" %>
     <br>
-    <%= text_area_tag :reply, nil, id: "reply-text-area", :rows => 6, :cols => 30  %>
+    <%= text_area_tag :reply_body, nil, id: "reply-text-area", :rows => 6, :cols => 30  %>
     <br>
     <%= submit_tag "Submit", class: "btn"%>
   <% end %>

@@ -9,13 +9,8 @@ class MessagesController < ApplicationController
 
   def reply
     @message = Message.find(params[:id])
-    @reply = @message.replies.create!(:body => params[:reply])
-    boot_twilio
-    sms = @client.messages.create(
-    from: ENV['TWILIO_NUMBER'],
-    to: @message.from_number,
-    body: @reply.body
-    )
+    new_reply = @message.replies.create!(:to_phone_number => @message.from_number, :body => params[:reply_body])
+    new_reply.send_reply
     respond_to do |format|
       format.html { redirect_to text_interface_messages_path }
       format.js
@@ -24,19 +19,10 @@ class MessagesController < ApplicationController
 
   def text_interface
     @all_messages = Message.all
-    @all_replies = Reply.all
     respond_to do |format|
       format.js
       format.html
     end
-  end
-
-  private
-
-  def boot_twilio
-    account_sid = ENV['TWILIO_SID']
-    auth_token = ENV['TWILIO_AUTH_TOKEN']
-    @client = Twilio::REST::Client.new account_sid, auth_token
   end
 
 end
