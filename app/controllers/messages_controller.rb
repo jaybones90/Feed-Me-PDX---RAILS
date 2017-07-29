@@ -14,7 +14,7 @@ class MessagesController < ApplicationController
     sms = @client.messages.create(
     from: ENV['TWILIO_NUMBER'],
     to: @message.from_number,
-    body: reply.body
+    body: @reply.body
     )
     respond_to do |format|
       format.html { redirect_to text_interface_messages_path }
