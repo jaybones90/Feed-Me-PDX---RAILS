@@ -1,20 +1,5 @@
-<%= form_for @order_item do |f| %>
-  <%= f.label :item_name, "Item Name" %>
-  <%= f.text_field :item_name %>
-  <%= f.label :quantity, "Item Quantity" %>
-  <%= f.number_field :quantity %>
-  <%= f.label :price, "Price" %>
-  <%= f.number_field :price %>
-  <%= f.submit %>
-<% end %>
+<%= stylesheet_link_tag "orders", media: "all" %>
 
-<h3> Items In This Order </h3>
-<% if @order.order_items.any? %>
-  <% @order.order_items.each do |item| %>
-    <ul>
-      <li> <%= item.item_name %> </li>
-      <li> <%= item.quantity %> </li>
-      <li> <%= item.price %> </li>
-    </ul>
-  <% end %>
-<% end %>
+<div class="order-form">
+  <%= render "form" %>
+</div>

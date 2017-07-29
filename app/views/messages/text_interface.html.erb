@@ -1,19 +1,9 @@
-  <p class="left-nav-item"> <%= link_to "FoodCart Sign Out", destroy_food_cart_session_path(current_food_cart), method: :delete  if current_food_cart %> </p>
+<%= stylesheet_link_tag "text-interface", media: "all" %>
 
-<h1>Text Message Order Thread</h1>
 
-<div class="row">
-  <div class="col-sm-8 message-block">
-    <% if @all_messages.any? %>
-      <% if @all_replies.any? %>
-        <%= render 'messages' %>
-      <% else %>
-        <p>No New Messages</p>
-      <% end %>
-    <% end %>
-  </div>
-  <div class="col-sm-4 reply-block">
-    <%= render 'reply' %>
-    <%= link_to "Confirm Order", new_order_item_path %>
-  </div>
-</div>
+
+<h1>Welcome To The Text Portal</h1>
+
+<%= link_to "Start Session", text_interface_messages_path, class: "btn", remote: true %>
+
+<div class="display-overlay"></div>

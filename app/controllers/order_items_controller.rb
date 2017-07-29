@@ -3,6 +3,10 @@ class OrderItemsController < ApplicationController
   def new
     @order = current_order
     @order_item = OrderItem.new
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create

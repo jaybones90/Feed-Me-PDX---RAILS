@@ -4,18 +4,12 @@ class MessagesController < ApplicationController
   before_action :authenticate_food_cart!, only: [:text_interface]
 
   def receive
-    # @all_messages = Message.all
-    # @all_replies = Reply.all
-    counter = Message.all.length
     new_message = Message.create!(:body => params['Body'], :from_number => params['From'])
-    if counter < Message.all.length
-      redirect_to "http://6fce6c2b.ngrok.io/messages/text_interface"
-    end
   end
 
   def reply
     @message = Message.find(params[:id])
-    reply = Reply.create!(:body => params[:reply])
+    @reply = @message.replies.create!(:body => params[:reply])
     boot_twilio
     sms = @client.messages.create(
     from: ENV['TWILIO_NUMBER'],
@@ -31,6 +25,10 @@ class MessagesController < ApplicationController
   def text_interface
     @all_messages = Message.all
     @all_replies = Reply.all
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
   private

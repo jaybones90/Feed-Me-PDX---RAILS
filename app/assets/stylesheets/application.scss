@@ -66,36 +66,20 @@
   }
 }
 
-.message-block {
-  padding: 2em;
+
+label, input, button {
+  display: block;
+}
+
+input[type="submit"], label {
+  font-family: 'Rubik'
+}
+
+.btn {
   border: 2px solid black;
+  background-color: rgba(255, 255, 255, 1);
 }
 
-.customer-message {
-  border-radius: 20px;
-  padding: 2em;
-  width: 40%;
-  background-color: rgba(55, 100, 150, .3);
-  border: 1px;
-  text-align: left;
-  color: green;
-}
-
-.food-cart-message {
-  border-radius: 20px;
-  padding: 2em;
-  margin-left: 60%;
-  width: 40%;
-  background-color: rgba(20, 255, 99, .3);
-  border: 1px;
-  text-align: right;
-  color: blue;
-}
-
-.number-to-text {
-  text-shadow: 3px 3px 6px black;
-  font-size: 55px;
-  text-align: center;
-  margin-top: 5em;
-  color: white;
+input {
+  border: 1px solid black;
 }

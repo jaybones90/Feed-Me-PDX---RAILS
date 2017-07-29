@@ -1,0 +1,22 @@
+
+
+<div class="color-block">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-sm-8 message-block">
+        <% if @all_messages.any? %>
+        <%= render 'messages' %>
+        <% else %>
+        <p>No New Messages</p>
+        <% end %>
+      </div>
+      <div class="col-sm-4 reply-block">
+        <%= render 'reply' %>
+        <%= link_to "Confirm Order", new_order_item_path, class:"btn", id: 'confirm-order-button', remote: true %>
+        <div class="display-order-form"></div>
+      </div>
+    </div>
+
+  </div>
+</div>

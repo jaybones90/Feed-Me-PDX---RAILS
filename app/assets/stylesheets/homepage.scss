@@ -1,0 +1,21 @@
+.number-to-text {
+
+  margin-top: 1em;
+}
+
+.homepage-info-section {
+  left: 0;
+  position: absolute;
+  background-color: rgba(40, 44, 52, 1);
+  width: 100%;
+  margin-top: 500px;
+  height: 40%;
+  h1, h2 {
+    text-align: center;
+    color: white;
+    text-shadow: 3px 3px 6px black;
+  }
+  h1 {
+    font-size: 55px;
+  }
+}
