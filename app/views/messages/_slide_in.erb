@@ -1,0 +1,19 @@
+
+
+<div class="text-slide-in">
+
+
+      <div class="message-block">
+        <% if @all_messages.any? %>
+        <%= render 'messages' %>
+        <% else %>
+        <p>No New Messages</p>
+        <% end %>
+      </div>
+      <div class="reply-block">
+        <%= render 'reply' %>
+      </div>
+      <div class="display-order-form"></div>
+
+
+</div>

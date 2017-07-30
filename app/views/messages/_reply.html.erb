@@ -1,10 +1,12 @@
-<% if Message.last %>
-  <%= form_tag reply_messages_path, method: :post, remote: true  do  %>
-    <%= hidden_field_tag :id, Message.last.id %>
-    <%= label_tag "Reply" %>
-    <br>
-    <%= text_area_tag :reply_body, nil, id: "reply-text-area", :rows => 6, :cols => 30  %>
-    <br>
-    <%= submit_tag "Submit", class: "btn"%>
+<div class="reply-form">
+  <% if Message.last %>
+    <%= form_tag reply_messages_path, method: :post, remote: true  do  %>
+      <%= hidden_field_tag :id, Message.last.id %>
+      <%= label_tag "Reply" %>
+      <br>
+      <%= text_field_tag :reply_body, nil, id: "reply-text-area" %>
+      <br>
+      <%= submit_tag "Submit", class: "btn"%>
+    <% end %>
   <% end %>
-<% end %>
+</div>

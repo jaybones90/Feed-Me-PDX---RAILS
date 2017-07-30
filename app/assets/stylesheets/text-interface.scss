@@ -1,12 +1,15 @@
-.row {
-  margin-top: 20%;
-}
 
 .message-block {
+  margin: 2% auto;
+  height: 400px;
+  overflow:auto;
+  text-align: center;
+  width: 80%;
   padding: 2em;
   border-radius: 20px;
   border: 2px solid white;
-  background-color: white;
+  background-color: beige;
+  margin-bottom: 0;
 }
 
 .customer-message {
@@ -33,16 +36,12 @@
 h1 {
   text-align: center;
 }
-
-.color-block {
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, .8);
-  background-size: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
+//
+// .text-slide-in {
+//   width: 100%;
+//   height: 100%;
+//   background-color: rgba(0, 0, 244, .8);
+// }
 
 body {
   position: relative;
@@ -52,17 +51,31 @@ label {
   color: white;
 }
 
-#start-text-session-button {
+.reply-block {
   margin: 0 auto;
-  width: 20%;
-  text-align: center;
-  display: block;
 }
 
-.reply-block {
+.reply-form {
+  text-align: center;
   label {
     font-weight: normal;
     display: inline;
     font-size: 20px;
   }
+  input[type="text"] {
+    margin-top: 0;
+    width: 80%;
+    height: 40px;
+    border: 2px solid black;
+    border-radius: 20px;
+  }
+}
+
+#confirm-order-button {
+  display: none;
+}
+
+
+.center-buttons {
+  text-align: center;
 }
