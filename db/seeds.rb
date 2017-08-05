@@ -1,10 +1,32 @@
 class Seed
 
   FoodCart.destroy_all
+  Subscriber.destroy_all
 
   def self.begin
     seed = Seed.new
     seed.generate_carts
+    seed.generate_subscribers
+  end
+
+  def generate_subscribers
+    phone_numbers = ["+18584885368", "+16503021483", "+16508685904", "+16503028563"]
+    4.times do |i|
+      subscriber = Subscriber.create!(
+        from_number: phone_numbers[i]
+      )
+      4.times do |i|
+        message = subscriber.messages.create!(
+        body: Faker::Lorem.sentence
+        )
+        2.times do |i|
+          message.replies.create!(
+          to_phone_number: subscriber.from_number,
+          body: Faker::ChuckNorris.fact
+          )
+        end
+      end
+    end
   end
 
   def generate_carts

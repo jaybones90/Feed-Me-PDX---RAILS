@@ -1,4 +1,4 @@
 
 $('.message-block').empty()
-$('.message-block').html("<%= j render partial:('messages'), locals: {:@all_messages =>  Message.all, :@all_replies => Reply.all} %>")
+$('.message-block').html("<%= j render partial:('messages'), locals: {:@subscriber => Subscriber.find(session[:subscriber_id])} %>")
 $('#reply-text-area').val("")

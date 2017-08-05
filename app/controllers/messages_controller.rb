@@ -4,21 +4,33 @@ class MessagesController < ApplicationController
   before_action :authenticate_food_cart!, only: [:text_interface]
 
   def receive
-    new_message = Message.create!(:body => params['Body'], :from_number => params['From'])
+    # grab the phone number from the incoming message
+    from_number = params['From']
+    # find subscriber in the database or create a new one
+    subscriber = Subscriber.find_or_create_by(from_number: from_number)
+
+    subscriber.messages.create!(:body => params['Body'])
+
+    binding.pry
   end
 
   def reply
-    @message = Message.find(params[:id])
-    new_reply = @message.replies.create!(:to_phone_number => @message.from_number, :body => params[:reply_body])
+    subscriber = Subscriber.find(params[:id])
+    message = subscriber.messages.last
+    new_reply = message.replies.create!(:to_phone_number => subscriber.from_number, :body => params[:reply_body])
     new_reply.send_reply
     respond_to do |format|
-      format.html { redirect_to text_interface_messages_path }
+      format.html
       format.js
     end
   end
 
   def text_interface
-    @all_messages = Message.all
+    if params.has_key?(:subscriber_id)
+      @subscriber = (Subscriber.find(params[:subscriber_id]))
+      session[:subscriber_id] = @subscriber.id
+    end
+    @subscribers = Subscriber.all
     respond_to do |format|
       format.js
       format.html

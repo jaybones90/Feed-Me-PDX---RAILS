@@ -4,10 +4,42 @@
 
 <h1>Welcome To The Text Portal</h1>
 
-<div class="center-buttons">
-  <p><%= link_to "Start Session", text_interface_messages_path, class: "btn", id: "start-text-session-button", remote: true %></p>
-  <%= link_to "Confirm Order", new_order_item_path, class:"btn", id: 'confirm-order-button', remote: true %>
+<div class="row">
+  <div class="col-md-4">
+    <div class="conversation-container">
+
+      <% @subscribers.each do |subscriber| %>
+
+          <%= link_to text_interface_messages_path({subscriber_id: subscriber.id}) do %>
+            <div class="conversation">
+              <%= subscriber.from_number %>
+              <br>
+              <%= subscriber.messages.last.body %>
+            </div>
+            <hr>
+          <% end %>
+
+      <% end %>
+
+    </div>
+  </div>
+  <div class="col-md-8">
+    <div class="message-block">
+      <%= render 'messages'%>
+    </div>
+
+    <%= render 'reply' %>
+
+  </div>
 </div>
+
+
+
+
+<!-- <div class="center-buttons">
+  <p><%# link_to "Start Session", text_interface_messages_path, class: "btn", id: "start-text-session-button", remote: true %></p>
+  <%# link_to "Confirm Order", new_order_item_path, class:"btn", id: 'confirm-order-button', remote: true %>
+</div> -->
 
 
 <div class="text-display"></div>

@@ -1,10 +1,11 @@
 
 
 <div class="text-slide-in">
+  
 
 
       <div class="message-block">
-        <% if @all_messages.any? %>
+        <% if @subscriber.messages.any? %>
         <%= render 'messages' %>
         <% else %>
         <p>No New Messages</p>
